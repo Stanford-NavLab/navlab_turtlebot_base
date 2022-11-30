@@ -1,0 +1,11 @@
+<launch>
+
+    <!-- load flightroom gazebo world -->
+    <include file="$(find navlab_turtlebot)/launch/flightroom_world.launch"/>
+
+    <!-- load navigator node -->
+    <include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch">
+        <arg name="map_file" value="$(find navlab_turtlebot)/maps/flightroom.yaml"/>
+    </include>
+
+</launch>
