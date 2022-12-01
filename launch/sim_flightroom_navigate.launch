@@ -4,7 +4,8 @@
     <include file="$(find navlab_turtlebot)/launch/flightroom_world.launch"/>
 
     <!-- load navigator node -->
-    <include file="$(find navlab_turtlebot)/launch/flightroom_navigation.launch">
+    <include file="$(find navlab_turtlebot)/launch/turtlebot3_navigation.launch">
+        <arg name="remote" value="true"/>
         <arg name="map_file" value="$(find navlab_turtlebot)/maps/flightroom.yaml"/>
     </include>
 

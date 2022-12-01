@@ -15,3 +15,21 @@ Simulate flight room in Gazebo environment:
 ```
 roslaunch navlab_turtlebot sim_flightroom_navigate.launch
 ```
+
+
+Flight Room Demo
+
+motion capture relay:
+```
+roscore
+```
+
+turtlebot
+```
+roslaunch turtlebot3_bringup turtlebot3_core.launch multi_robot_name:=turtlebot_core
+```
+
+groundstation
+```
+roslaunch navlab_turtlebot flightroom_single.launch ns:=turtlebot3
+```
