@@ -6,6 +6,4 @@
         <arg name="map_file" value="$(find navlab_turtlebot)/maps/turtlebot3_world.yaml"/>
     </include>
 
-
-
 </launch>
