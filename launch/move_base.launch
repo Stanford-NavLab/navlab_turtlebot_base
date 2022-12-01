@@ -18,7 +18,7 @@
     <rosparam>
         move_base/global_costmap/robot_base_frame: "turtlebot3"
         move_base/local_costmap/robot_base_frame: "turtlebot3"
-        DWAPlannerROS/xy_goal_tolerance: 0.1
+        DWAPlannerROS/xy_goal_tolerance: 0.2
     </rosparam>
     <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
     <remap from="odom" to="$(arg odom_topic)"/>
