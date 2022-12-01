@@ -1,6 +1,6 @@
 <launch>
 
     <!-- bringup turtlbot -->
-    <include ns="$(echo $HOSTNAME)" file="$(find turtlebot3_bringup)/launch/turtlebot3_robot.launch"/>
+    <include ns="$(env USERNAME)" file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch"/>
 
 </launch>
