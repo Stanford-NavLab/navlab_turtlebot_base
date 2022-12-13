@@ -5,7 +5,7 @@
 
     <!-- load navigator node -->
     <include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch">
-        <arg name="map_file" value="$(find navlab_turtlebot)/maps/turtlebot3_world.yaml"/>
+        <arg name="map_file" value="$(find navlab_turtlebot_sim)/maps/turtlebot3_world.yaml"/>
     </include>
 
 </launch>
