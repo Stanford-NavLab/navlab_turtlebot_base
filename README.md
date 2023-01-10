@@ -1,6 +1,6 @@
 # navlab_turtlebot_sim
 
-Utility functions for working with [TurtleBot](https://www.robotis.us/turtlebot-3/) robots in the [Stanford Flight Room](https://stanfordflightroom.github.io/).
+ROS package for working with [TurtleBot](https://www.robotis.us/turtlebot-3/) robots in the [Stanford Flight Room](https://stanfordflightroom.github.io/).
 
 ## Install Instructions
 
