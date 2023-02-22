@@ -6,7 +6,7 @@
 
   <!-- Flightroom launch -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find navlab_turtlebot_sim)/worlds/flightroom.world"/>
+    <arg name="world_name" value="$(find navlab_turtlebot_sim)/worlds/flightroom_obstacles.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -23,9 +23,9 @@
   <group ns="turtlebot1">
     <param name="tf_prefix" value="turtlebot1_tf" />
     <include file="$(find navlab_turtlebot_sim)/launch/one_robot.launch" >
-      <arg name="x_pos" value="1" />
-      <arg name="y_pos" value="1" />
-      <arg name="z_pos" value="0" />
+      <arg name="x_pos" value="0" />
+      <arg name="y_pos" value="0" />
+      <arg name="yaw" value="0" />
       <arg name="robot_name"  value="turtlebot1" />
     </include>
   </group>
@@ -34,9 +34,9 @@
   <group ns="turtlebot2">
     <param name="tf_prefix" value="turtlebot2_tf" />
     <include file="$(find navlab_turtlebot_sim)/launch/one_robot.launch" >
-      <arg name="x_pos" value="-1" />
-      <arg name="y_pos" value="1" />
-      <arg name="z_pos" value="0" />
+      <arg name="x_pos" value="5" />
+      <arg name="y_pos" value="0" />
+      <arg name="yaw" value="3.14" />
       <arg name="robot_name"  value="turtlebot2" />
     </include>
   </group>
