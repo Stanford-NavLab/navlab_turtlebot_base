@@ -8,6 +8,9 @@
     <arg name="remote" default="false"/>
     <arg name="server" default="mocap.local"/>
     <arg name="ns1" default="turtlebot1"/>
+    <arg name="ns2" default="turtlebot2"/>
+    <arg name="ns3" default="turtlebot3"/>
+    <arg name="ns4" default="turtlebot4"/>
 
     <!-- VRPN client -->
     <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
@@ -51,6 +54,45 @@
     </group>
 
     <node pkg="tf" type="static_transform_publisher" name="vrpn2footprint_$(arg ns1)" args="0 0 0 0 0 0 1 $(arg ns1) $(arg ns1)_tf/base_footprint 100" />
+
+    <!-- BEGIN ROBOT 2-->
+    <group ns="$(arg ns2)">
+      <param name="tf_prefix" value="$(arg ns2)_tf" />
+      <include file="$(find navlab_turtlebot_sim)/launch/one_robot.launch" >
+        <arg name="x_pos" value="0" />
+        <arg name="y_pos" value="0" />
+        <arg name="yaw" value="0" />
+        <arg name="robot_name"  value="$(arg ns2)" />
+      </include>
+    </group>
+
+    <node pkg="tf" type="static_transform_publisher" name="vrpn2footprint_$(arg ns2)" args="0 0 0 0 0 0 1 $(arg ns2) $(arg ns2)_tf/base_footprint 100" />
+
+    <!-- BEGIN ROBOT 3-->
+    <group ns="$(arg ns3)">
+      <param name="tf_prefix" value="$(arg ns3)_tf" />
+      <include file="$(find navlab_turtlebot_sim)/launch/one_robot.launch" >
+        <arg name="x_pos" value="0" />
+        <arg name="y_pos" value="0" />
+        <arg name="yaw" value="0" />
+        <arg name="robot_name"  value="$(arg ns3)" />
+      </include>
+    </group>
+
+    <node pkg="tf" type="static_transform_publisher" name="vrpn2footprint_$(arg ns3)" args="0 0 0 0 0 0 1 $(arg ns3) $(arg ns3)_tf/base_footprint 100" />
+
+    <!-- BEGIN ROBOT 4-->
+    <group ns="$(arg ns4)">
+      <param name="tf_prefix" value="$(arg ns4)_tf" />
+      <include file="$(find navlab_turtlebot_sim)/launch/one_robot.launch" >
+        <arg name="x_pos" value="0" />
+        <arg name="y_pos" value="0" />
+        <arg name="yaw" value="0" />
+        <arg name="robot_name"  value="$(arg ns4)" />
+      </include>
+    </group>
+
+    <node pkg="tf" type="static_transform_publisher" name="vrpn2footprint_$(arg ns4)" args="0 0 0 0 0 0 1 $(arg ns4) $(arg ns4)_tf/base_footprint 100" />
 
 
     <!-- Turtlebot3 -->
