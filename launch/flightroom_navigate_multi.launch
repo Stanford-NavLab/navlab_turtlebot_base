@@ -34,7 +34,7 @@
     <!-- rviz -->
     <group if="$(arg open_rviz)">
       <node pkg="rviz" type="rviz" name="rviz" required="true"
-            args="-d $(find navlab_turtlebot_sim)/rviz/turtlebot_multi_navigation.rviz"/>
+            args="-d $(find navlab_turtlebot_sim)/rviz/turtlebot_four_navigation.rviz"/>
     </group>
 
     <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
