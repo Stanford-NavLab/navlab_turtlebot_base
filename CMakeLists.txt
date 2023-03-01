@@ -10,6 +10,7 @@ project(navlab_turtlebot_sim)
 find_package(catkin REQUIRED COMPONENTS
   move_base
   nav_msgs
+  geometry_msgs
   rospy
   std_msgs
   vrpn_client_ros
