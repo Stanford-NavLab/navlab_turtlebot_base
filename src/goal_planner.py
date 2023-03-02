@@ -63,8 +63,6 @@ class GoalPlanner():
         rospy.on_shutdown(self.cleanup)
         rate = rospy.Rate(1) # 1Hz
 
-        self.sent_initial_goals = False
-
         while not rospy.is_shutdown():
 
             all_topics = rospy.get_published_topics()
@@ -75,10 +73,9 @@ class GoalPlanner():
             if len(new_odom_topics) > 0:
                 self.subscribe_to_all(new_odom_topics)
 
+            self.publish_goals()
             rate.sleep()
 
-            if not self.sent_initial_goals:
-                self.publish_goals()
 
     def subscribe_to_all(self, new_topics):
         """Subscribes to all new topics and adds to dictionary.
@@ -122,11 +119,10 @@ class GoalPlanner():
         robot_y = data_measured.pose.pose.position.y
         with self.lock:
             robot_goal_idx = self.current_goal_idx[turtlebot_id]
-        goal_x, goal_y = self.goals[robot_goal_idx][:2]
+            goal_x, goal_y = self.goals[robot_goal_idx][:2]
 
-        goal_distance = np.linalg.norm([goal_x-robot_x,goal_y-robot_y])
+            goal_distance = np.linalg.norm([goal_x-robot_x,goal_y-robot_y])
 
-        with self.lock:
             self.goal_distances[turtlebot_id] = goal_distance
             distances = np.array(list(self.goal_distances.values()))
             if np.all(distances < self.goal_threshold):

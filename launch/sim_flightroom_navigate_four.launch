@@ -20,7 +20,7 @@
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
   <!-- Goal Planner -->
-  <node pkg="navlab_turtlebot_sim" name="goal_planner" type="goal_planner.py" />
+  <node pkg="navlab_turtlebot_sim" name="goal_planner" type="goal_planner.py" output="screen" />
 
   <!-- BEGIN ROBOT 1-->
   <group ns="turtlebot1">

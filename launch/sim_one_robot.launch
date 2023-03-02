@@ -4,7 +4,7 @@
   <arg name="y_pos" default="0.0"/>
   <arg name="yaw" default="0.0"/>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
-  <arg name="move_forward_only" default="false"/>
+  <arg name="move_forward_only" default="true"/>
 
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model $(arg robot_name)
       -x $(arg x_pos) -y $(arg y_pos) -Y $(arg yaw) -param /robot_description" />
