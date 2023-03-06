@@ -1,20 +1,26 @@
-# navlab_turtlebot_sim
+# navlab_turtlebot_base
 
-ROS package for working with [TurtleBot](https://www.robotis.us/turtlebot-3/) robots in the [Stanford Flight Room](https://stanfordflightroom.github.io/).
-
+ROS package for working with [TurtleBot](https://www.robotis.us/turtlebot-3/) robots
 ## Install Instructions
 
-Install dependencies:
+1. Install dependencies:
 ```
-sudo apt-get install ros-"${ROS_DISTRO}"-dwa-local-planner ros-"${ROS_DISTRO}"-turtlebot3 ros-"${ROS_DISTRO}"-vrpn-client-ros ros-"${ROS_DISTRO}"-move-base
+sudo apt-get install ros-"${ROS_DISTRO}"-turtlebot3 ros-"${ROS_DISTRO}"-vrpn-client-ros
 ```
+2. Set the turtlebot model environment variable or add to your `.bashrc`: `export TURTLEBOT3_MODEL="burger"`
 
-## Launch Instructions
+## Gazebo Simulation
 
 Simulate flight room in Gazebo environment:
 ```
 roslaunch navlab_turtlebot_sim sim_flightroom_navigate.launch
 ```
+
+## Stanford Flight Room Launch Instructions
+This section contains specific details for running in the [Stanford Flight Room](https://stanfordflightroom.github.io/).
+
+
+
 
 
 Flight Room Demo
