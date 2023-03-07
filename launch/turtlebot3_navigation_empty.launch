@@ -21,7 +21,7 @@
   <node pkg="tf" type="static_transform_publisher" name="map_odom_publisher" args="0 0 0 0 0 0 1 map odom 100" />
 
   <!-- move_base -->
-  <include file="$(find navlab_turtlebot_sim)/launch/move_base.launch">
+  <include file="$(find navlab_turtlebot_base)/launch/move_base.launch">
     <!-- <arg name="ns" value="$(arg ns)" /> -->
     <arg name="model" value="$(arg model)" />
     <arg name="move_forward_only" value="$(arg move_forward_only)"/>
@@ -30,6 +30,6 @@
   <!-- rviz -->
   <group if="$(arg open_rviz)">
     <node pkg="rviz" type="rviz" name="rviz" required="true"
-          args="-d $(find navlab_turtlebot_sim)/rviz/turtlebot3_navigation.rviz"/>
+          args="-d $(find navlab_turtlebot_base)/rviz/turtlebot3_navigation.rviz"/>
   </group>
 </launch>

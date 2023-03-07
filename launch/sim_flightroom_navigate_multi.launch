@@ -1,12 +1,12 @@
 <launch>
 
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
-  <arg name="map_file" default="$(find navlab_turtlebot_sim)/maps/flightroom.yaml"/>
+  <arg name="map_file" default="$(find navlab_turtlebot_base)/maps/flightroom.yaml"/>
   <arg name="open_rviz" default="true"/>
 
   <!-- Flightroom launch -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find navlab_turtlebot_sim)/worlds/flightroom_obstacles.world"/>
+    <arg name="world_name" value="$(find navlab_turtlebot_base)/worlds/flightroom_obstacles.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -22,7 +22,7 @@
   <!-- BEGIN ROBOT 1-->
   <group ns="turtlebot1">
     <param name="tf_prefix" value="turtlebot1_tf" />
-    <include file="$(find navlab_turtlebot_sim)/launch/sim_one_robot.launch" >
+    <include file="$(find navlab_turtlebot_base)/launch/sim_one_robot.launch" >
       <arg name="x_pos" value="0" />
       <arg name="y_pos" value="0" />
       <arg name="yaw" value="0" />
@@ -33,7 +33,7 @@
   <!-- BEGIN ROBOT 2-->
   <group ns="turtlebot2">
     <param name="tf_prefix" value="turtlebot2_tf" />
-    <include file="$(find navlab_turtlebot_sim)/launch/sim_one_robot.launch" >
+    <include file="$(find navlab_turtlebot_base)/launch/sim_one_robot.launch" >
       <arg name="x_pos" value="5" />
       <arg name="y_pos" value="0" />
       <arg name="yaw" value="3.14" />
@@ -45,7 +45,7 @@
   <!-- rviz -->
   <group if="$(arg open_rviz)">
     <node pkg="rviz" type="rviz" name="rviz" required="true"
-          args="-d $(find navlab_turtlebot_sim)/rviz/turtlebot3_navigation.rviz"/>
+          args="-d $(find navlab_turtlebot_base)/rviz/turtlebot3_navigation.rviz"/>
   </group> 
 
 

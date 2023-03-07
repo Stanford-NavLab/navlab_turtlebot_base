@@ -13,7 +13,7 @@ sudo apt-get install ros-"${ROS_DISTRO}"-turtlebot3 ros-"${ROS_DISTRO}"-vrpn-cli
 
 Simulate flight room in Gazebo environment:
 ```
-roslaunch navlab_turtlebot_sim sim_flightroom_navigate.launch
+roslaunch navlab_turtlebot_base sim_flightroom_navigate.launch
 ```
 
 ## Stanford Flight Room Launch Instructions
@@ -37,5 +37,5 @@ roslaunch turtlebot3_bringup turtlebot3_core.launch multi_robot_name:=turtlebot_
 
 groundstation
 ```
-roslaunch navlab_turtlebot_sim flightroom_single.launch ns:=turtlebot3
+roslaunch navlab_turtlebot_base flightroom_single.launch ns:=turtlebot3
 ```

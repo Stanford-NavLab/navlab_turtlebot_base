@@ -2,7 +2,7 @@
 
     <!-- Arguments -->
     <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
-    <arg name="map_file" default="$(find navlab_turtlebot_sim)/maps/flightroom.yaml"/>
+    <arg name="map_file" default="$(find navlab_turtlebot_base)/maps/flightroom.yaml"/>
     <arg name="open_rviz" default="true"/>
     <arg name="move_forward_only" default="false"/>
     <arg name="remote" default="false"/>
@@ -34,7 +34,7 @@
     <!-- rviz -->
     <group if="$(arg open_rviz)">
       <node pkg="rviz" type="rviz" name="rviz" required="true"
-            args="-d $(find navlab_turtlebot_sim)/rviz/turtlebot_four_navigation.rviz"/>
+            args="-d $(find navlab_turtlebot_base)/rviz/turtlebot_four_navigation.rviz"/>
     </group>
 
     <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
@@ -45,7 +45,7 @@
     <!-- BEGIN ROBOT 1-->
     <group ns="$(arg ns1)">
       <param name="tf_prefix" value="$(arg ns1)_tf" />
-      <include file="$(find navlab_turtlebot_sim)/launch/one_robot.launch" >
+      <include file="$(find navlab_turtlebot_base)/launch/one_robot.launch" >
         <arg name="x_pos" value="0" />
         <arg name="y_pos" value="0" />
         <arg name="yaw" value="0" />
@@ -58,7 +58,7 @@
     <!-- BEGIN ROBOT 2-->
     <group ns="$(arg ns2)">
       <param name="tf_prefix" value="$(arg ns2)_tf" />
-      <include file="$(find navlab_turtlebot_sim)/launch/one_robot.launch" >
+      <include file="$(find navlab_turtlebot_base)/launch/one_robot.launch" >
         <arg name="x_pos" value="0" />
         <arg name="y_pos" value="0" />
         <arg name="yaw" value="0" />
@@ -71,7 +71,7 @@
     <!-- BEGIN ROBOT 3-->
     <group ns="$(arg ns3)">
       <param name="tf_prefix" value="$(arg ns3)_tf" />
-      <include file="$(find navlab_turtlebot_sim)/launch/one_robot.launch" >
+      <include file="$(find navlab_turtlebot_base)/launch/one_robot.launch" >
         <arg name="x_pos" value="0" />
         <arg name="y_pos" value="0" />
         <arg name="yaw" value="0" />
@@ -84,7 +84,7 @@
     <!-- BEGIN ROBOT 4-->
     <group ns="$(arg ns4)">
       <param name="tf_prefix" value="$(arg ns4)_tf" />
-      <include file="$(find navlab_turtlebot_sim)/launch/one_robot.launch" >
+      <include file="$(find navlab_turtlebot_base)/launch/one_robot.launch" >
         <arg name="x_pos" value="0" />
         <arg name="y_pos" value="0" />
         <arg name="yaw" value="0" />

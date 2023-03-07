@@ -9,7 +9,8 @@
 
   <!-- move_base -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
     <!-- <param name="base_local_planner" value="local_planner/LocalPlanner" /> -->
     <rosparam file="$(find turtlebot3_navigation)/param/costmap_common_params_$(arg model).yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find turtlebot3_navigation)/param/costmap_common_params_$(arg model).yaml" command="load" ns="local_costmap" />
@@ -34,10 +35,12 @@
     <param name="global_costmap/obstacle_layer/scan/sensor_frame" value="$(arg robot_name)/base_scan"/>
     <param name="local_costmap/scan/sensor_frame" value="$(arg robot_name)/base_scan"/>
     <param name="local_costmap/obstacle_layer/scan/sensor_frame" value="$(arg robot_name)/base_scan"/>
-    
+
     <!-- Planner params -->
-    <param name="DWAPlannerROS/xy_goal_tolerance" value="0.2" />
-    <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
+    <!-- <param name="DWAPlannerROS/xy_goal_tolerance" value="0.2" /> -->
+    <!-- <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" /> -->
+
+    <param name="TebLocalPlannerROS/max_vel_x_backwards" value="0.0" if="$(arg move_forward_only)" />
 
     <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
     <remap from="odom" to="$(arg odom_topic)"/>
