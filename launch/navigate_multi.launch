@@ -11,13 +11,13 @@
   # whether or not to open rviz
   <arg name="open_rviz" default="true"/>
   # parameters for start and goal locations
-  <arg name="goal_file" default="$(find navlab_turtlebot_base)/param/start_goals.yaml"/>
+  <arg name="goal_file" default="$(find navlab_turtlebot_base)/param/four_square.yaml"/>
 
   <!-- Load Turtlebot starting positions and goal locations -->
   <rosparam command="load" file="$(arg goal_file)" />
 
+  <!-- Gazebo Specific launches -->
   <group if="$(arg sim)">
-    <!-- Flightroom Gazebo launch -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
       <arg name="world_name" value="$(find navlab_turtlebot_base)/worlds/flightroom_obstacles.world"/>
       <arg name="paused" value="false"/>
@@ -27,6 +27,27 @@
       <arg name="debug" value="false"/>
     </include>
   </group>
+
+  <!-- Stanford Flight Room Specific Launches -->
+  <group if="$(eval not(arg('sim')))">
+    <!-- VRPN client -->
+    <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
+      <rosparam subst_value="true">
+        server: $(arg server)
+        port: 3883
+        update_frequency: 100.0
+        frame_id: odom
+        use_server_time: false
+        broadcast_tf: true
+        refresh_tracker_frequency: 1.0
+      </rosparam>
+    </node>
+
+    <!-- static map publisher -->
+    <node pkg="tf" type="static_transform_publisher" name="map_odom_publisher" args="0 0 0 0 0 0 1 map odom 100" />
+
+  </group>
+
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
@@ -40,26 +61,20 @@
   <group if="$(eval arg('robot_count') >= 1)">
     <group ns="turtlebot1">
       <param name="tf_prefix" value="turtlebot1_tf" />
-      <include file="$(find navlab_turtlebot_base)/launch/sim_one_robot.launch" >
-        <arg name="x_pos" value="2" />
-        <arg name="y_pos" value="2" />
-        <arg name="yaw" value="0" />
+      <include file="$(find navlab_turtlebot_base)/launch/one_robot.launch" >
         <arg name="robot_name"  value="turtlebot1" />
+        <arg name="sim"  value="$(arg sim)" />
       </include>
     </group>
-
-
   </group>
 
   <!-- BEGIN ROBOT 2-->
   <group if="$(eval arg('robot_count') >= 2)">
     <group ns="turtlebot2">
       <param name="tf_prefix" value="turtlebot2_tf" />
-      <include file="$(find navlab_turtlebot_base)/launch/sim_one_robot.launch" >
-        <arg name="x_pos" value="2" />
-        <arg name="y_pos" value="-2" />
-        <arg name="yaw" value="4.71" />
+      <include file="$(find navlab_turtlebot_base)/launch/one_robot.launch" >
         <arg name="robot_name"  value="turtlebot2" />
+        <arg name="sim"  value="$(arg sim)" />
       </include>
     </group>
   </group>
@@ -68,11 +83,9 @@
   <group if="$(eval arg('robot_count') >= 3)">
     <group ns="turtlebot3">
       <param name="tf_prefix" value="turtlebot3_tf" />
-      <include file="$(find navlab_turtlebot_base)/launch/sim_one_robot.launch" >
-        <arg name="x_pos" value="-2" />
-        <arg name="y_pos" value="-2" />
-        <arg name="yaw" value="3.14" />
+      <include file="$(find navlab_turtlebot_base)/launch/one_robot.launch" >
         <arg name="robot_name"  value="turtlebot3" />
+        <arg name="sim"  value="$(arg sim)" />
       </include>
     </group>
   </group>
@@ -81,11 +94,9 @@
   <group if="$(eval arg('robot_count') >= 4)">
     <group ns="turtlebot4">
       <param name="tf_prefix" value="turtlebot4_tf" />
-      <include file="$(find navlab_turtlebot_base)/launch/sim_one_robot.launch" >
-        <arg name="x_pos" value="-2" />
-        <arg name="y_pos" value="2" />
-        <arg name="yaw" value="1.57" />
+      <include file="$(find navlab_turtlebot_base)/launch/one_robot.launch" >
         <arg name="robot_name"  value="turtlebot4" />
+        <arg name="sim"  value="$(arg sim)" />
       </include>
     </group>
   </group>
