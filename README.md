@@ -7,7 +7,6 @@ ROS package for working with [TurtleBot](https://www.robotis.us/turtlebot-3/) ro
 ```
 sudo apt-get install ros-"${ROS_DISTRO}"-turtlebot3 ros-"${ROS_DISTRO}"-vrpn-client-ros
 ```
-2. Set the turtlebot model environment variable or add to your `.bashrc`: `export TURTLEBOT3_MODEL="burger"`
 
 ## Gazebo Simulation
 
