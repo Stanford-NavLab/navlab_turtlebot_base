@@ -1,0 +1,20 @@
+turtlebot1:
+  start_x: 2.0
+  start_y: 2.0
+  goal_x: 2.0
+  goal_y: -2.0
+turtlebot2:
+  start_x: 2.0
+  start_y: -2.0
+  goal_x: -2.0
+  goal_y: -2.0
+turtlebot3:
+  start_x: -2.0
+  start_y: -2.0
+  goal_x: -2.0
+  goal_y: 2.0
+turtlebot4:
+  start_x: -2.0
+  start_y: 2.0
+  goal_x: 2.0
+  goal_y: 2.0
