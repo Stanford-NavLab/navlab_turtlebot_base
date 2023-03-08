@@ -18,23 +18,17 @@ roslaunch navlab_turtlebot_base sim_flightroom_navigate.launch
 ## Stanford Flight Room Launch Instructions
 This section contains specific details for running in the [Stanford Flight Room](https://stanfordflightroom.github.io/).
 
-
-
-
-
-Flight Room Demo
-
-motion capture relay:
+On the motion capture relay computer run:
 ```
 roscore
 ```
 
-turtlebot
+On each turtlebot run
 ```
-roslaunch turtlebot3_bringup turtlebot3_core.launch multi_robot_name:=turtlebot_core
+roslaunch navlab_turtlebot_bringup move_base_multi.launch
 ```
 
-groundstation
+On the base/groundstation computer run:
 ```
-roslaunch navlab_turtlebot_base flightroom_single.launch ns:=turtlebot3
+roslaunch navlab_turtlebot_base navigate_multi.launch
 ```

@@ -26,6 +26,10 @@
       <arg name="headless" value="false"/>
       <arg name="debug" value="false"/>
     </include>
+
+    <!-- Goal Planner -->
+    <node pkg="navlab_turtlebot_base" name="goal_planner" type="goal_planner.py" output="screen" />
+
   </group>
 
   <!-- Stanford Flight Room Specific Launches -->
@@ -46,6 +50,9 @@
     <!-- static map publisher -->
     <node pkg="tf" type="static_transform_publisher" name="map_odom_publisher" args="0 0 0 0 0 0 1 map odom 100" />
 
+    <!-- Goal Planner -->
+    <node pkg="navlab_turtlebot_base" name="goal_planner" type="goal_planner_vrpn.py" output="screen" />
+
   </group>
 
 
@@ -53,9 +60,6 @@
 
   <!-- Map server -->
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
-
-  <!-- Goal Planner -->
-  <node pkg="navlab_turtlebot_base" name="goal_planner" type="goal_planner.py" output="screen" />
 
   <!-- BEGIN ROBOT 1-->
   <group if="$(eval arg('robot_count') >= 1)">
