@@ -12,6 +12,8 @@
   <arg name="open_rviz" default="true"/>
   # parameters for start and goal locations
   <arg name="goal_file" default="$(find navlab_turtlebot_base)/param/four_square.yaml"/>
+  # whether to start the goal planner
+  <arg name="planner" default=""/>
 
   <!-- Load Turtlebot starting positions and goal locations -->
   <rosparam command="load" file="$(arg goal_file)" />
@@ -28,8 +30,9 @@
     </include>
 
     <!-- Goal Planner -->
-    <node pkg="navlab_turtlebot_base" name="goal_planner" type="goal_planner.py" output="screen" />
-
+    <group if="$(eval arg('planner') == 'goal')">
+      <node pkg="navlab_turtlebot_base" name="goal_planner" type="goal_planner.py" output="screen" />
+    </group>
   </group>
 
   <!-- Stanford Flight Room Specific Launches -->
