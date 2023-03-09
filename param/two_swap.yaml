@@ -1,0 +1,14 @@
+turtlebot1:
+  start_x: 0.0
+  start_y: 0.0
+  start_yaw: 0.
+  goal_x: 5.0
+  goal_y: 0.0
+  goal_yaw: 0.
+turtlebot2:
+  start_x: 5.0
+  start_y: 0.0
+  start_yaw: 3.14
+  goal_x: 0.0
+  goal_y: 0.0
+  goal_yaw: 3.14
