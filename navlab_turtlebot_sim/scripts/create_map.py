@@ -15,7 +15,7 @@ import rospkg
 import numpy as np
 import matplotlib.pyplot as plt
 
-pkg_path = rospkg.RosPack().get_path("navlab_turtlebot_base")
+pkg_path = rospkg.RosPack().get_path("navlab_turtlebot_sim")
 
 # # plot previous map
 # img_path = os.path.join(pkg_path,"maps","turtlebot3_world.pgm")

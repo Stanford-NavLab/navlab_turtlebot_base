@@ -5,7 +5,7 @@ ROS package for working with [TurtleBot](https://www.robotis.us/turtlebot-3/) ro
 
 1. Install dependencies:
 ```
-sudo apt-get install ros-"${ROS_DISTRO}"-turtlebot3 ros-"${ROS_DISTRO}"-vrpn-client-ros
+sudo apt-get install ros-"${ROS_DISTRO}"-turtlebot3 ros-"${ROS_DISTRO}"-vrpn
 ```
 
 ## Gazebo Simulation
