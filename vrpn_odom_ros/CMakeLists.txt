@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(vrpn_odom_ros)
 
-find_package(catkin REQUIRED COMPONENTS geometry_msgs roscpp tf2_ros)
+find_package(catkin REQUIRED COMPONENTS geometry_msgs nav_msgs roscpp rospy tf2_ros)
 find_package(VRPN REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES vrpn_odom_ros
-  CATKIN_DEPENDS geometry_msgs tf2_ros
+  CATKIN_DEPENDS geometry_msgs nav_msgs tf2_ros
   DEPENDS VRPN
 )
 

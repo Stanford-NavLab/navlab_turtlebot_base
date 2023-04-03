@@ -208,7 +208,7 @@ namespace vrpn_odom_ros
       }
       else
       {
-        tracker->transform_stamped_.child_frame_id = tracker->tracker_name;
+        tracker->transform_stamped_.child_frame_id = tracker->tracker_name + "_tf/odom";
       }
 
       tracker->transform_stamped_.transform.translation.x = tracker_pose.pos[0];
