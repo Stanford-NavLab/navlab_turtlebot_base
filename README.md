@@ -25,10 +25,10 @@ roscore
 
 On each turtlebot run
 ```
-roslaunch navlab_turtlebot_bringup move_base_multi.launch
+roslaunch navlab_turtlebot_bringup move_base_bringup.launch
 ```
 
 On the base/groundstation computer run:
 ```
-roslaunch navlab_turtlebot_base navigate_multi.launch planner:=goal sim:=false
+roslaunch navlab_turtlebot_bringup navigate_multi.launch planner:=goal sim:=false
 ```
