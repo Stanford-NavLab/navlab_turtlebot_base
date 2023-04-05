@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """Republish VRPN PoseStamped messages as Odometry messages
 
 Looks for odometry on topics called: "/vrpn_client_node/turtlebot*/pose"
