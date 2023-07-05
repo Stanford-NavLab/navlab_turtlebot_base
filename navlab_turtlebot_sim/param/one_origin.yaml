@@ -1,6 +1,9 @@
 turtlebot1:
   start_x: 0.0
   start_y: 0.0
-  start_yaw: 0.
+  start_yaw: 0.0
+  goal_x: 5.0
+  goal_y: 0.0
+  goal_yaw: 0.0
 
 
