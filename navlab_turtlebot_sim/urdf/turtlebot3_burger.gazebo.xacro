@@ -17,10 +17,10 @@
       <surface>
            <friction>
                <ode>
-                   <mu>0.1</mu>
+                   <mu1>0.1</mu1>
                    <mu2>0.1</mu2>
-                   <slip1>0.1</slip1>
-                   <slip2>0.1</slip2>
+                   <slip1>0.05</slip1>
+                   <slip2>0.0</slip2>
                    <fdir1>1 0 0</fdir1>
                </ode>
            </friction>
@@ -38,10 +38,10 @@
       <surface>
            <friction>
                <ode>
-                   <mu>0.1</mu>
+                   <mu1>0.1</mu1>
                    <mu2>0.1</mu2>
-                   <slip1>0.1</slip1>
-                   <slip2>0.1</slip2>
+                   <slip1>0.05</slip1>
+                   <slip2>0.0</slip2>
                    <fdir1>1 0 0</fdir1>
                </ode>
            </friction>
@@ -116,6 +116,19 @@
           </accel>
         </noise>
       </imu>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>ground_truth/state</topicName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <frameName>map</frameName>
+      <xyzOffsets>0 0 0</xyzOffsets>
+      <rpyOffsets>0 0 0</rpyOffsets>
     </plugin>
   </gazebo>
 
