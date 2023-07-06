@@ -70,10 +70,10 @@
   <gazebo>
     <plugin name="turtlebot3_burger_controller" filename="libgazebo_ros_diff_drive.so">
       <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
+      <odometryTopic>odom_encoder</odometryTopic>
+      <odometryFrame>odom_encoder</odometryFrame>
       <odometrySource>world</odometrySource>
-      <publishOdomTF>true</publishOdomTF>
+      <publishOdomTF>false</publishOdomTF>
       <robotBaseFrame>base_footprint</robotBaseFrame>
       <publishWheelTF>false</publishWheelTF>
       <publishTf>true</publishTf>
@@ -124,7 +124,7 @@
       <alwaysOn>true</alwaysOn>
       <updateRate>100.0</updateRate>
       <bodyName>base_link</bodyName>
-      <topicName>ground_truth/state</topicName>
+      <topicName>odom_mocap</topicName>
       <gaussianNoise>0.0</gaussianNoise>
       <frameName>map</frameName>
       <xyzOffsets>0 0 0</xyzOffsets>

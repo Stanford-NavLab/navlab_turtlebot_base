@@ -61,7 +61,7 @@ class Pose2Odom():
             # Subscribe to topic and set callback function
             turtlebot_id = self.get_turtlebot_id(topic_name)
 
-            publish_name = "/turtlebot"+ turtlebot_id + "/odom"
+            publish_name = "/turtlebot"+ turtlebot_id + "/odom_mocap"
             self.odom_publishers[turtlebot_id] = rospy.Publisher(publish_name,
                                                         Odometry,
                                                         queue_size = 10)
@@ -79,7 +79,7 @@ class Pose2Odom():
         Parameters
         ----------
         data_measured : geometry_msgs/PoseStamped
-            Data from the /odom topic that was published.
+            Data from the /odom_mocap topic that was published.
         turtlebot_id : string
             Turtlebot number for which this callback function was called.
 
@@ -87,7 +87,7 @@ class Pose2Odom():
 
         msg = Odometry()
         msg.header = data_measured.header
-        msg.child_frame_id = "turtlebot" + turtlebot_id + "_tf/odom"
+        msg.child_frame_id = "turtlebot" + turtlebot_id + "_tf/odom_mocap"
         msg.pose.pose = data_measured.pose
 
         self.odom_publishers[turtlebot_id].publish(msg)
