@@ -25,7 +25,7 @@ roscore
 
 On each turtlebot run
 ```
-roslaunch navlab_turtlebot_bringup move_base_bringup.launch
+roslaunch navlab_turtlebot_bringup turtlebot_bringup.launch planner:=goal zed:=true
 ```
 
 On the base/groundstation computer run:
