@@ -29,7 +29,7 @@ class Pose2Odom():
         self.odom_publishers = {}
 
         # Initialize ROS node.
-        rospy.init_node('goal_planner', anonymous=False)
+        rospy.init_node('pose2odom', anonymous=False)
         rospy.on_shutdown(self.cleanup)
         rate = rospy.Rate(1) # 1Hz
 

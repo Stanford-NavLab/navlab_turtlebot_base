@@ -29,9 +29,6 @@ def odom_callback(msg, odom_args):
 
 if __name__ == '__main__':
     rospy.init_node('odom_tf_broadcaster')
-    for iii, arg in enumerate(sys.argv):
-        print(iii,arg)
-    print(len(sys.argv))
     if len(sys.argv) < 3:
         print("odom_tf_broadcaster called without name and odom_source args")
     else:
