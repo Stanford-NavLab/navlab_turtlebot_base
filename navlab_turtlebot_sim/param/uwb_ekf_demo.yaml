@@ -13,11 +13,11 @@ turtlebot2:
   goal_y: -2.0
   goal_yaw: 3.14
 turtlebot3:
-  start_x: 0.0
+  start_x: 1.0
   start_y: 1.0
   start_yaw: 0.0
   goal_x: 3.0
-  goal_y: 0.0
+  goal_y: 1.0
   goal_yaw: 0.0
 turtlebot4:
   start_x: -2.0
