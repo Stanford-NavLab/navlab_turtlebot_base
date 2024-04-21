@@ -1,28 +1,28 @@
 turtlebot1:
-  start_x: -6.0
+  start_x: -5.0
   start_y: 2.1
   start_yaw: 0.0
-  goal_x: 6.0
+  goal_x: 5.0
   goal_y: 2.1
   goal_yaw: 0.0
 turtlebot2:
-  start_x: -6.0
+  start_x: -5.0
   start_y: 0.7
   start_yaw: 0.0
-  goal_x: 6.0
+  goal_x: 5.0
   goal_y: 0.7
   goal_yaw: 0.0
 turtlebot3:
-  start_x: -6.0
+  start_x: -5.0
   start_y: -0.7
   start_yaw: 0.0
-  goal_x: 6.0
+  goal_x: 5.0
   goal_y: -0.7
   goal_yaw: 0.0
 turtlebot4:
-  start_x: -6.0
+  start_x: -5.0
   start_y: -2.1
   start_yaw: 0.0
-  goal_x: 6.0
+  goal_x: 5.0
   goal_y: -2.1
   goal_yaw: 0.0
