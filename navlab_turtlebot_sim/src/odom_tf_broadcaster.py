@@ -13,8 +13,8 @@ def odom_callback(msg, odom_args):
     t = geometry_msgs.msg.TransformStamped()
 
     t.header.stamp = msg.header.stamp
-    t.header.frame_id = robot_name + "_tf/odom_" + odom_source
-    t.child_frame_id = robot_name + "_tf/base_footprint"
+    t.header.frame_id = "map"
+    t.child_frame_id = robot_name + "_tf/odom_" + odom_source
     t.transform.translation.x = msg.pose.pose.position.x
     t.transform.translation.y = msg.pose.pose.position.y
     t.transform.translation.z = msg.pose.pose.position.z
@@ -40,4 +40,9 @@ if __name__ == '__main__':
                          odom_callback,
                          odom_args
                          )
+
+        msg = Odometry()
+        
+        odom_callback(msg,odom_args)
+
     rospy.spin()
