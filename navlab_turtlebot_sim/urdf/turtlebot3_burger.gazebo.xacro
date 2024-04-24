@@ -19,7 +19,7 @@
                <ode>
                    <mu1>0.1</mu1>
                    <mu2>0.1</mu2>
-                   <slip1>0.05</slip1>
+                   <slip1>0.0</slip1>
                    <slip2>0.0</slip2>
                    <fdir1>1 0 0</fdir1>
                </ode>
@@ -40,7 +40,7 @@
                <ode>
                    <mu1>0.1</mu1>
                    <mu2>0.1</mu2>
-                   <slip1>0.05</slip1>
+                   <slip1>0.0</slip1>
                    <slip2>0.0</slip2>
                    <fdir1>1 0 0</fdir1>
                </ode>
