@@ -13,8 +13,8 @@ def odom_callback(msg, odom_args):
     t = geometry_msgs.msg.TransformStamped()
 
     t.header.stamp = msg.header.stamp
-    t.header.frame_id = robot_name + "_tf/odom_" + odom_source
-    t.child_frame_id = robot_name + "_tf/base_footprint"
+    t.header.frame_id = "map"
+    t.child_frame_id = robot_name + "_tf/odom_" + odom_source
     t.transform.translation.x = msg.pose.pose.position.x
     t.transform.translation.y = msg.pose.pose.position.y
     t.transform.translation.z = msg.pose.pose.position.z
@@ -28,16 +28,21 @@ def odom_callback(msg, odom_args):
     br.sendTransform(t)
 
 if __name__ == '__main__':
-    rospy.init_node('odom_tf_broadcaster')
     if len(sys.argv) < 3:
         print("odom_tf_broadcaster called without name and odom_source args")
     else:
         robot_name = sys.argv[1]
         odom_source = sys.argv[2]
         odom_args = (robot_name, odom_source)
+        rospy.init_node(robot_name + 'odom_tf_broadcaster')
         rospy.Subscriber("odom_" + odom_source,
                          Odometry,
                          odom_callback,
                          odom_args
                          )
+
+        msg = Odometry()
+        
+        odom_callback(msg,odom_args)
+
     rospy.spin()

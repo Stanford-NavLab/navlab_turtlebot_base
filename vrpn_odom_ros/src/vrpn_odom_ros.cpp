@@ -116,7 +116,7 @@ namespace vrpn_odom_ros
     nh.param<bool>("process_sensor_id", process_sensor_id_, false);
 
     // pose_msg_.header.frame_id = twist_msg_.header.frame_id = accel_msg_.header.frame_id = transform_stamped_.header.frame_id = frame_id;
-    pose_msg_.header.frame_id = twist_msg_.header.frame_id = accel_msg_.header.frame_id = transform_stamped_.header.frame_id = tracker_name + "_tf/odom_mocap";
+    pose_msg_.header.frame_id = twist_msg_.header.frame_id = accel_msg_.header.frame_id = transform_stamped_.header.frame_id = "map";
 
     if (create_mainloop_timer)
     {
@@ -209,7 +209,7 @@ namespace vrpn_odom_ros
       }
       else
       {
-        tracker->transform_stamped_.child_frame_id = tracker->tracker_name + "_tf/base_footprint";
+        tracker->transform_stamped_.child_frame_id = tracker->tracker_name + "_tf/odom_mocap";
       }
 
       tracker->transform_stamped_.transform.translation.x = tracker_pose.pos[0];
